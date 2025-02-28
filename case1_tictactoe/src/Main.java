@@ -10,12 +10,12 @@ public class Main {
 
         do{
             for (Player player : players){
-                if(player.id == turn) curr = player;
+                if(player.getId() == turn) curr = player;
             }
-            board.input(turn, curr.symbol);
+            board.input(turn, curr.getSymbol());
             board.print();
             moves--;
-            won = board.check(curr.symbol);
+            won = board.check(curr.getSymbol());
             if(won) System.out.println("Player " + (turn+1) + " won!");
             if(moves == 0) System.out.println("Draw...");
             turn = (turn+1) % 2; // jumlah player fleksibel

@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Board {
-    public char[][] board;
-    Scanner sc = new Scanner(System.in);
+    private char[][] board;
+    private Scanner sc = new Scanner(System.in);
     
     public Board(){
         board = new char[][]{
@@ -22,14 +22,15 @@ public class Board {
     }
 
     public boolean check(char symbol){
-        if(board[0][0] + board[0][1] + board[0][2] == symbol+symbol+symbol ||
-            board[1][0] + board[1][1] + board[1][2] == symbol+symbol+symbol ||
-            board[2][0] + board[2][1] + board[2][2] == symbol+symbol+symbol ||
-            board[0][0] + board[1][0] + board[2][0] == symbol+symbol+symbol ||
-            board[0][1] + board[1][1] + board[2][1] == symbol+symbol+symbol ||
-            board[0][2] + board[1][2] + board[2][2] == symbol+symbol+symbol ||
-            board[0][0] + board[1][1] + board[2][2] == symbol+symbol+symbol ||
-            board[0][2] + board[1][1] + board[2][0] == symbol+symbol+symbol) return true;
+        String winCondition = ""+symbol+symbol+symbol;
+        if(winCondition.equals(""+board[0][0] + board[0][1] + board[0][2]) ||
+            winCondition.equals(""+board[1][0] + board[1][1] + board[1][2]) ||
+            winCondition.equals(""+board[2][0] + board[2][1] + board[2][2]) ||
+            winCondition.equals(""+board[0][0] + board[1][0] + board[2][0]) ||
+            winCondition.equals(""+board[0][1] + board[1][1] + board[2][1]) ||
+            winCondition.equals(""+board[0][2] + board[1][2] + board[2][2]) ||
+            winCondition.equals(""+board[0][0] + board[1][1] + board[2][2]) ||
+            winCondition.equals(""+board[0][2] + board[1][1] + board[2][0])) return true;
         return false;
     }
 
