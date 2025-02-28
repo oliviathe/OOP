@@ -1,11 +1,15 @@
 import java.util.*;
 
 public class Borrower{
-    public String name;
-    ArrayList<Book> borrowedBooks = new ArrayList<Book>();
+    private String name;
+    private List<Book> borrowedBooks = new ArrayList<Book>();
 
     public Borrower(String name){
         this.name = name;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public void displayBorrowedBooks(){
@@ -14,5 +18,17 @@ public class Borrower{
             book.displayBookInfo();
         }
         if(borrowedBooks.isEmpty()) System.out.println("No books borrowed...");
+    }
+
+    public Boolean hasBorrowedBook(Book book){
+        return borrowedBooks.contains(book);
+    }
+
+    public void addBorrowedBook(Book book){
+        borrowedBooks.add(book);
+    }
+
+    public void removeBorrowedBook(Book book){
+        borrowedBooks.remove(book);
     }
 }
